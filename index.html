@@ -3,74 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Roda do Tacho - Take-away</title>
+    <title>À Roda do Tacho</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f1ef; margin: 0; padding: 15px; color: #333; }
-        .container { max-width: 650px; margin: auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 20px rgba(142, 93, 66, 0.15); border-top: 8px solid #8E5D42; }
-        .logo-header { text-align: center; background-color: #8E5D42; padding: 25px; border-radius: 15px 15px 0 0; margin: -25px -25px 25px -25px; }
-        .logo-header h1 { color: white; margin: 0; font-size: 2em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .subtitle { text-align: center; color: #8E5D42; margin-bottom: 25px; font-size: 1.1em; font-weight: bold; margin-top: -10px;}
-        .header-row { display: grid; grid-template-columns: 1.8fr 1.5fr 0.7fr; gap: 10px; padding: 12px 10px; background: #8E5D42; color: white; border-radius: 8px; font-weight: bold; margin-bottom: 10px; font-size: 0.85em; text-transform: uppercase; }
-        .prato-row { display: grid; grid-template-columns: 1.8fr 1.5fr 0.7fr; gap: 10px; align-items: center; padding: 12px 5px; border-bottom: 1px solid #eaddd5; }
-        .prato-nome { font-weight: 600; color: #5d3a28; font-size: 0.95em; }
-        input, select { padding: 10px; border-radius: 8px; border: 1px solid #d1c4bc; font-size: 13px; width: 100%; box-sizing: border-box; background-color: white; }
-        input[type="number"] { text-align: center; border: 2px solid #eaddd5; font-weight: bold; color: #8E5D42; }
-        .cliente-seccao { margin-top: 30px; border-top: 2px solid #eaddd5; padding-top: 20px; background-color: #fdfaf8; padding: 20px; border-radius: 10px; }
-        .input-grupo { margin-bottom: 15px; }
-        .input-grupo label { display: block; font-weight: bold; margin-bottom: 5px; color: #8E5D42; }
-        button { width: 100%; background-color: #8E5D42; color: white; border: none; padding: 18px; font-size: 18px; font-weight: bold; border-radius: 12px; cursor: pointer; margin-top: 20px;}
+        body { font-family: sans-serif; background-color: #f4f1ef; padding: 15px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 15px; border-top: 8px solid #8E5D42; }
+        h1 { color: #8E5D42; text-align: center; }
+        .prato-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        select, input { padding: 5px; border-radius: 5px; border: 1px solid #ccc; }
+        .btn { width: 100%; background: #8E5D42; color: white; padding: 15px; border: none; border-radius: 10px; font-weight: bold; margin-top: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>À Roda do Tacho</h1>
+        <div id="lista">
+            <div class="prato-row" data-nome="Bacalhau com Natas">
+                <span>Bacalhau com Natas</span>
+                <select class="tam"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select>
+                <input type="number" class="qtd" value="0" min="0" style="width: 40px;">
+            </div>
+            <div class="prato-row" data-nome="Arroz de Pato">
+                <span>Arroz de Pato</span>
+                <select class="tam"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select>
+                <input type="number" class="qtd" value="0" min="0" style="width: 40px;">
+            </div>
+            </div>
 
-<div class="container">
-    <div class="logo-header"><h1>À Roda do Tacho</h1></div>
-    <p class="subtitle">Take-away e Pronto a Comer</p>
-
-    <div class="header-row"><span>Prato</span><span>Tamanho</span><span>Qtd.</span></div>
-
-    <div id="lista-ementa">
-        <div class="prato-row" data-nome="Bacalhau com Natas">
-            <span class="prato-nome">Bacalhau com Natas</span>
-            <select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select>
-            <input type="number" class="qtd" value="0" min="0">
+        <div style="margin-top:20px;">
+            <label>O seu Nome:</label><br>
+            <input type="text" id="nome" style="width:100%;"><br><br>
+            <label>Hora de Levantamento:</label><br>
+            <input type="time" id="hora" style="width:100%;">
         </div>
-        <div class="prato-row" data-nome="Arroz"><span class="prato-nome">Arrozo</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Vitela Assada"><span class="prato-nome">Vitela Assada</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Filetes de Pescada"><span class="prato-nome">Filetes de Pescada</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Cozido à Portuguesa"><span class="prato-nome">Cozido à Portuguesa</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Feijoada Transmontana"><span class="prato-nome">Feijoada Transmontana</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Polvo à Lagareiro"><span class="prato-nome">Polvo à Lagareiro</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Lasanha de Carne"><span class="prato-nome">Lasanha de Carne</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Frango no Churrasco"><span class="prato-nome">Frango no Churrasco</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
-        <div class="prato-row" data-nome="Arroz de Marisco"><span class="prato-nome">Arroz de Marisco</span><select class="tamanho"><option>Pequena</option><option>Média Pequena</option><option>Média Grande</option><option>Grande</option></select><input type="number" class="qtd" value="0" min="0"></div>
+
+        <button class="btn" onclick="enviar()">ENVIAR PEDIDO WHATSAPP</button>
     </div>
 
-    <div class="cliente-seccao">
-        <div class="input-grupo"><label>O seu Nome:</label><input type="text" id="nomeCliente" required></div>
-        <div class="input-grupo"><label>Hora para Levantamento:</label><input type="time" id="horaLevantamento" required></div>
-    </div>
-
-    <button onclick="enviarWhatsApp()">🍽️ Enviar Pedido via WhatsApp</button>
-</div>
-
-<script>
-    function enviarWhatsApp() {
-        const nome = document.getElementById('nomeCliente').value;
-        const hora = document.getElementById('horaLevantamento').value;
-        const meuNumero = "351966496713";
-        if (!nome || !hora) { alert("Preencha o nome e a hora."); return; }
-        let listaItens = "";
-        document.querySelectorAll('.prato-row').forEach(linha => {
-            const nomePrato = linha.getAttribute('data-nome');
-            const tamanho = linha.querySelector('.tamanho').value;
-            const quantidade = parseInt(linha.querySelector('.qtd').value);
-            if (quantidade > 0) { listaItens += `✅ *${quantidade}x* ${nomePrato}%0A   └─ ${tamanho}%0A`; }
-        });
-        if (listaItens === "") { alert("Escolha pelo menos um prato."); return; }
-        const texto = `*À RODA DO TACHO*%0A*Cliente:* ${nome}%0A*Hora:* ${hora}%0A%0A*PEDIDO:*%0A${listaItens}`;
-        window.open(`https://api.whatsapp.com/send?phone=${meuNumero}&text=${texto}`, '_blank');
-    }
-</script>
+    <script>
+        function enviar() {
+            const nome = document.getElementById('nome').value;
+            const hora = document.getElementById('hora').value;
+            if(!nome || !hora) { alert("Preencha nome e hora"); return; }
+            let msg = `*PEDIDO À RODA DO TACHO*%0A*Cliente:* ${nome}%0A*Hora:* ${hora}%0A%0A`;
+            document.querySelectorAll('.prato-row').forEach(p => {
+                const q = p.querySelector('.qtd').value;
+                if(q > 0) {
+                    msg += `✅ ${q}x ${p.getAttribute('data-nome')} (${p.querySelector('.tam').value})%0A`;
+                }
+            });
+            window.open(`https://api.whatsapp.com/send?phone=351966496713&text=${msg}`);
+        }
+    </script>
 </body>
 </html>
